@@ -214,60 +214,60 @@ public class Halaman_beli extends AppCompatActivity {
         }
 
     }
-//    //    Tombol beli
-//    public void Buy()
-//    {
-//        if(tambahMinyak==true && tambahTelur==true)
-//        {
-//            hasilTambah= new Intent(Halaman_beli.this,Halaman_transaksi.class);
-//            totalMinyak=akumulasiMinyak*hargaMinyak;
-//            totalTelur=akumulasiTelor*hargaTelur;
-//            hasilTambah.putExtra("HasilTelur",totalTelur);
-//            tambahMinyak=false;
-//            hasilTambah.putExtra("HasilMinyak",totalMinyak);
-//            tambahTelur=false;
-//            startActivity(hasilTambah);
-//        }
+    //    Tombol beli
+    public void Buy()
+    {
+        if(tambahMinyak==true && tambahTelur==true)
+        {
+            hasilTambah= new Intent(Halaman_beli.this,Halaman_transaksi.class);
+            totalMinyak=akumulasiMinyak*hargaMinyak;
+            totalTelur=akumulasiTelor*hargaTelur;
+            hasilTambah.putExtra("HasilTelur",totalTelur);
+            tambahMinyak=false;
+            hasilTambah.putExtra("HasilMinyak",totalMinyak);
+            tambahTelur=false;
+            startActivity(hasilTambah);
+        }
+
+        else if(tambahMinyak==true || tambahTelur==true)
+        {
+            hasilTambah= new Intent(Halaman_beli.this,Halaman_transaksi.class);
+            totalMinyak=akumulasiMinyak*hargaMinyak;
+            totalTelur=akumulasiTelor*hargaTelur;
+            hasilTambah.putExtra("HasilTelur",totalTelur);
+            tambahMinyak=false;
+            hasilTambah.putExtra("HasilMinyak",totalMinyak);
+            tambahTelur=false;
+            startActivity(hasilTambah);
+        }
+
+
 //
-//        else if(tambahMinyak==true || tambahTelur==true)
-//        {
-//            hasilTambah= new Intent(Halaman_beli.this,Halaman_transaksi.class);
-//            totalMinyak=akumulasiMinyak*hargaMinyak;
-//            totalTelur=akumulasiTelor*hargaTelur;
-//            hasilTambah.putExtra("HasilTelur",totalTelur);
-//            tambahMinyak=false;
-//            hasilTambah.putExtra("HasilMinyak",totalMinyak);
-//            tambahTelur=false;
-//            startActivity(hasilTambah);
-//        }
-//
-//
-////
-//        else if(kurangTelur==true && kurangOil==true)
-//        {
-//            hasilKurang = new Intent(Halaman_beli.this,Halaman_transaksi.class);
-//            totalMinyak=akumulasiMinyak*hargaMinyak;
-//            totalTelur=akumulasiTelor*hargaTelur;
-//            hasilKurang.putExtra("HasilTelur",totalTelur);
-//            tambahMinyak=false;
-//            hasilKurang.putExtra("HasilMinyak",totalMinyak);
-//            tambahTelur=false;
-//            startActivity(hasilKurang);
-//
-//        }
-//        else if(kurangTelur==true || kurangOil==true)
-//        {
-//            hasilKurang = new Intent(Halaman_beli.this,Halaman_transaksi.class);
-//            totalMinyak=akumulasiMinyak*hargaMinyak;
-//            totalTelur=akumulasiTelor*hargaTelur;
-//            hasilKurang.putExtra("HasilTelur",totalTelur);
-//            tambahMinyak=false;
-//            hasilKurang.putExtra("HasilMinyak",totalMinyak);
-//            tambahTelur=false;
-//            startActivity(hasilKurang);
-//
-//        }
-//    }
+        else if(kurangTelur==true && kurangOil==true)
+        {
+            hasilKurang = new Intent(Halaman_beli.this,Halaman_transaksi.class);
+            totalMinyak=akumulasiMinyak*hargaMinyak;
+            totalTelur=akumulasiTelor*hargaTelur;
+            hasilKurang.putExtra("HasilTelur",totalTelur);
+            tambahMinyak=false;
+            hasilKurang.putExtra("HasilMinyak",totalMinyak);
+            tambahTelur=false;
+            startActivity(hasilKurang);
+
+        }
+        else if(kurangTelur==true || kurangOil==true)
+        {
+            hasilKurang = new Intent(Halaman_beli.this,Halaman_transaksi.class);
+            totalMinyak=akumulasiMinyak*hargaMinyak;
+            totalTelur=akumulasiTelor*hargaTelur;
+            hasilKurang.putExtra("HasilTelur",totalTelur);
+            tambahMinyak=false;
+            hasilKurang.putExtra("HasilMinyak",totalMinyak);
+            tambahTelur=false;
+            startActivity(hasilKurang);
+
+        }
+    }
 
 
 }
