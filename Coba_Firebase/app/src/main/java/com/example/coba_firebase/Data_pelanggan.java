@@ -1,5 +1,7 @@
 package com.example.coba_firebase;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,33 +31,36 @@ public class Data_pelanggan extends AppCompatActivity {
 
         setContentView(R.layout.activity_db_read);
 
-    rvView =(RecyclerView) findViewById(R.id.rv_main);
-    rvView.setHasFixedSize(true);
-    layoutManager= new LinearLayoutManager(this);
-    rvView.setLayoutManager(layoutManager);
+        rvView = (RecyclerView) findViewById(R.id.rv_main);
+        rvView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        rvView.setLayoutManager(layoutManager);
 
-    database = FirebaseDatabase.getInstance().getReference();
+        database = FirebaseDatabase.getInstance().getReference();
 
 
-    database.child("pelanggan").addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot snapshot) {
-            dataPelanggan = new ArrayList<>();
-            for (DataSnapshot noteDataSnapshot : snapshot.getChildren())
-            {
+        database.child("pelanggan").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                dataPelanggan = new ArrayList<>();
+                for (DataSnapshot noteDataSnapshot : snapshot.getChildren()) {
                     Pelanggan pelanggan = noteDataSnapshot.getValue(Pelanggan.class);
                     pelanggan.setKey(noteDataSnapshot.getKey());
 
                     dataPelanggan.add(pelanggan);
+                }
+                adapter = new Adapter_pelanggan(dataPelanggan, Data_pelanggan.this);
+                rvView.setAdapter(adapter);
             }
-            adapter = new Adapter_pelanggan(dataPelanggan,Data_pelanggan.this);
-            rvView.setAdapter(adapter);
-        }
 
-        @Override
-        public void onCancelled(@NonNull DatabaseError error) {
-            System.out.println(error.getDetails()+" "+error.getMessage());
-        }
-    });
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println(error.getDetails() + " " + error.getMessage());
+            }
+        });
+    }
+
+    public static Intent getActIntent(Activity activity) {
+        return new Intent(activity, Halaman_regis.class);
     }
 }
