@@ -16,7 +16,7 @@ public class Halaman_beli extends AppCompatActivity {
             ,kelompok
             ,beliTelur
             ,beliMinyak;
-    android.widget.Button kurangMinyak
+  Button kurangMinyak
             ,kurangTelor
             ,hapusMinyak
             ,hapusTelur
@@ -29,8 +29,8 @@ public class Halaman_beli extends AppCompatActivity {
             ,totalMinyak=0
             ,totalTelur=0;
 
-    String myEgg
-            ,myOil;
+    String myEgg="Telur"
+            ,myOil="Minyak";
 
     boolean kurangOil
             ,kurangTelur
@@ -84,7 +84,7 @@ public class Halaman_beli extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Buy();
+                Buy();
             }
         });
 
@@ -222,9 +222,12 @@ public class Halaman_beli extends AppCompatActivity {
             hasilTambah= new Intent(Halaman_beli.this,Halaman_transaksi.class);
             totalMinyak=akumulasiMinyak*hargaMinyak;
             totalTelur=akumulasiTelor*hargaTelur;
+
             hasilTambah.putExtra("HasilTelur",totalTelur);
+            hasilTambah.putExtra("barangTelur",myEgg);
             tambahMinyak=false;
             hasilTambah.putExtra("HasilMinyak",totalMinyak);
+            hasilTambah.putExtra("barangMinyak",myOil);
             tambahTelur=false;
             startActivity(hasilTambah);
         }
@@ -234,9 +237,12 @@ public class Halaman_beli extends AppCompatActivity {
             hasilTambah= new Intent(Halaman_beli.this,Halaman_transaksi.class);
             totalMinyak=akumulasiMinyak*hargaMinyak;
             totalTelur=akumulasiTelor*hargaTelur;
+
             hasilTambah.putExtra("HasilTelur",totalTelur);
+            hasilTambah.putExtra("barangTelur",myEgg);
             tambahMinyak=false;
             hasilTambah.putExtra("HasilMinyak",totalMinyak);
+            hasilTambah.putExtra("barangMinyak",myOil);
             tambahTelur=false;
             startActivity(hasilTambah);
         }
@@ -249,8 +255,11 @@ public class Halaman_beli extends AppCompatActivity {
             totalMinyak=akumulasiMinyak*hargaMinyak;
             totalTelur=akumulasiTelor*hargaTelur;
             hasilKurang.putExtra("HasilTelur",totalTelur);
+            hasilKurang.putExtra("barangTelur",myEgg);
+
             tambahMinyak=false;
             hasilKurang.putExtra("HasilMinyak",totalMinyak);
+            hasilKurang.putExtra("barangMinyak",myOil);
             tambahTelur=false;
             startActivity(hasilKurang);
 
@@ -260,9 +269,13 @@ public class Halaman_beli extends AppCompatActivity {
             hasilKurang = new Intent(Halaman_beli.this,Halaman_transaksi.class);
             totalMinyak=akumulasiMinyak*hargaMinyak;
             totalTelur=akumulasiTelor*hargaTelur;
+
             hasilKurang.putExtra("HasilTelur",totalTelur);
+            hasilKurang.putExtra("barangTelur",myEgg);
             tambahMinyak=false;
             hasilKurang.putExtra("HasilMinyak",totalMinyak);
+            hasilKurang.putExtra("barangMinyak",myOil);
+
             tambahTelur=false;
             startActivity(hasilKurang);
 
