@@ -32,7 +32,7 @@ class ViewHolder extends RecyclerView.ViewHolder
     }
 }
     @Override
-    public Adapter_pelanggan.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType)
     {
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pelanggan,parent,false);
         ViewHolder vh = new ViewHolder(v);
@@ -40,17 +40,18 @@ class ViewHolder extends RecyclerView.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Adapter_pelanggan.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         final String nama = daftarPelanggan.get(position).getNama();
-        holder.tv_Title.setOnClickListener(new View.OnClickListener() {
+
+        holder.tv_Title.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View view) {
-                return;
+            public boolean onLongClick(View view) {
+                return true;
             }
         });
         holder.tv_Title.setText(nama);
-    }
 
+    }
     @Override
     public int getItemCount() {
         return daftarPelanggan.size();
