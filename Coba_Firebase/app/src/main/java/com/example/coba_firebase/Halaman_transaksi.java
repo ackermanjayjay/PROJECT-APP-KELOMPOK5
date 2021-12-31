@@ -9,23 +9,29 @@ public class Halaman_transaksi extends AppCompatActivity {
     TextView totalTelur
             ,totalMinyak
             ,totalTransaksi
-            ,telorku
-            ,minyakku;
+            ,barang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_halaman_transaksi);
 
                 totalTelur=(TextView)findViewById(R.id.hasil_barang1);
-        telorku=(TextView)findViewById(R.id.hasil_telor);
+        barang =(TextView)findViewById(R.id.barang);
 
-//        Textview minyak
-        minyakku=(TextView)findViewById(R.id.hasil_minyak);
         totalMinyak=(TextView)findViewById(R.id.hasil_barang2);
 
         totalTransaksi=(TextView)findViewById(R.id.total_harga);
         //        Untuk judul atas
         getSupportActionBar().setTitle("Halaman Transaksi");
+
+
+//        Edit Text hasil barang
+        String barang1=getIntent().getExtras().getString("barangTelur");
+        barang.setText(" "+barang1);
+
+        //        Edit Text hasil barang
+        String barang2=getIntent().getExtras().getString("barangMinyak");
+        barang.setText(" "+barang2);
 
 //        Hasil Beli Telur
         int dapatTelur=getIntent().getExtras().getInt("HasilTelur");
