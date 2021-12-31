@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Halaman_home extends AppCompatActivity {
 ImageButton home,tentang,barang;
 TextView hasil_nama;
-Button beli,kelompok;
-String dapat_nama;
+Button beli,kelompok,liat;
+//String dapat_nama;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -23,16 +23,24 @@ String dapat_nama;
 //        Button content
         beli=findViewById(R.id.btn_buy);
         kelompok=findViewById(R.id.btn_kelompok);
+    liat=findViewById(R.id.btn_liat);
 
-
-//        Output login
-    hasil_nama=(TextView)findViewById(R.id.hasil_nama);
-    dapat_nama=getIntent().getExtras().getString("nama");
-    hasil_nama.setText("Selamat Datang: "+dapat_nama);
+////        Output login
+//    hasil_nama=(TextView)findViewById(R.id.hasil_nama);
+//    dapat_nama=getIntent().getExtras().getString("nama");
+//    hasil_nama.setText("Selamat Datang: "+dapat_nama);
 
 
         getSupportActionBar().setTitle("Halaman Home");
 
+
+
+        liat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Buka_admin();
+            }
+        });
 //        Button kontent
         beli.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,16 +56,18 @@ String dapat_nama;
             }
         });
 
+    }
 
-
-
-
+    public void Buka_admin()
+    {
+        Intent openBeli=new Intent(Halaman_home.this, Data_pelanggan.class);
+        startActivity(openBeli);
     }
 
 //    Button kontent
     public void Buka_Halaman_beli()
     {
-        Intent openBeli=new Intent(Halaman_home.this, Halaman_beli.class);
+        Intent openBeli=new Intent(Halaman_home.this, Halaman_regis.class);
         startActivity(openBeli);
     }
     public  void Buka_halaman_kelompok()
